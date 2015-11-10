@@ -32,3 +32,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'devise'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+gem 'bootstrap-sass'
+
+gem 'autoprefixer-rails'
