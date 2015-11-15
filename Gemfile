@@ -16,6 +16,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Use SCSS for stylesheets
@@ -30,3 +32,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'devise'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+gem 'bootstrap-sass'
+
+gem 'autoprefixer-rails'
