@@ -6,6 +6,7 @@
   <div class="col-md-8">
     <div class="media">
       <br />
+      <center>
       <% avatar_url = User.avatar_url(current_user, 128) %>
       <% if avatar_url %>
         <div class="media-left">
@@ -13,8 +14,9 @@
         </div>
       <% end %>
     <div class="media">
-      <h4 class="media-heading"><%= current_user.username %></h4>
+      <h4 class="media-heading"><%= current_user.username %>'s To-Do List</h4>
     </div>
+      </center>
    </div>
   </div>
 </html>
