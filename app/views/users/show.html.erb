@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+<h1>Blocitoff</h1>
+<p id="index-title">Your Self-destructing To-Do List</p>
+<div class="row">
+  <div class="col-md-8">
+    <div class="media">
+      <br />
+      <center>
+      <% avatar_url = User.avatar_url(current_user, 128) %>
+      <% if avatar_url %>
+        <div class="media-left">
+          <%= image_tag avatar_url, class: 'media-object' %>
+        </div>
+      <% end %>
+    <div class="media">
+      <h4 class="media-heading"><%= current_user.username %>'s To-Do List</h4>
+    </div>
+      </center>
+   </div>
+  </div>
+</html>
