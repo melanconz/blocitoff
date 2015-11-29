@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
+    resources :items, only: [:new, :create, :show]
     resources :show
   end
 
