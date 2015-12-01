@@ -1,7 +1,9 @@
-<div class="media">
+<div id="item-<%= item.id %>" class="media">
   <div class="media-body">
+
     <h4 class="media-heading">
-      <%= link_to "#{item.name} by #{item.date}", user_item_path(item.user, item) %>
+      <%= link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
+      <%= link_to "#{item.name} due in #{time_ago_in_words(item.date)}", user_item_path(item.user, item) %>
     </h4>
 
   </div>
