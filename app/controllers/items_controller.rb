@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new
     @item.name = params[:item][:name]
-    @item.date = params[:item][:date]
     @user = User.find(params[:user_id])
     @item.user = @user
 

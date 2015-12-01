@@ -3,7 +3,8 @@
 
     <h4 class="media-heading">
       <%= link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
-      <%= link_to "#{item.name} Due in #{time_ago_in_words(item.date)}", user_item_path(item.user, item) %>
+      <%= "#{item.name}" %> <br><br>
+      <%= "Item will self-destruct in #{distance_of_time_in_words(item.created_at, Time.now - 7.days)}." %>
     </h4>
 
   </div>
