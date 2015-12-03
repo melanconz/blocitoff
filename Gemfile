@@ -40,3 +40,5 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 gem 'faker'
+
+gem 'active_model_serializers'
