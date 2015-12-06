@@ -12,10 +12,10 @@ class ItemsController < ApplicationController
 
     if @item.save
       flash[:notice] = "Item was saved."
-      redirect_to [@user, @item]
+      redirect_to [@item.user]
     else
       flash[:error] = "There was an error when saving item. Please try again."
-      render :new
+      redirect_to [@item.user]
     end
   end
 

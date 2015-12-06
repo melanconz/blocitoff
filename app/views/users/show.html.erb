@@ -18,11 +18,16 @@
     </div>
       </center>
     <div class="media">
-      <h4 class="media-heading"><%= link_to "Add To-Do item", new_user_item_path(current_user.id) %></h4>
         <center>
           <h2>Items</h2>
         </center>
         <%= render @user.items %>
+    </div>
+    <br>
+    <div>
+      <h4 class="media-heading">Add To-Do item</h4>
+      <br>
+      <%=render 'items/form', item: Item.new, user: @user %>
     </div>
    </div>
   </div>
