@@ -1,14 +1,11 @@
 class ItemsController < ApplicationController
-  def new
-    @user = User.find(params[:user_id])
-    @item = Item.new
-  end
+
 
   def create
-    @item = Item.new
-    @item.name = params[:item][:name]
-    @user = User.find(params[:user_id])
-    @item.user = @user
+    @list = List.find(params[:list_id])
+    @item = @list.items.build(post_params)
+    @item.user = current_user
+    @new_item = Item.new
 
     if @item.save
       flash[:notice] = "Item was saved."
@@ -17,14 +14,14 @@ class ItemsController < ApplicationController
       flash[:error] = "There was an error when saving item. Please try again."
       redirect_to [@item.user]
     end
-  end
 
-  def show
-    @item = Item.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
-    @user = User.find(params[:user_id])
     @item = @user.items.find(params[:id])
 
     if @item.destroy
@@ -37,6 +34,10 @@ class ItemsController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def item_params
+    params.require(:item).permit(:name)
   end
 
 end

@@ -22,11 +22,19 @@ include Faker
   end
   users = User.all
 
+  15.times do
+    List.create!(
+        user: users.sample,
+        name: Faker::Hipster.word
+    )
+  end
+  lists = List.all
+
   100.times do
     Item.create!(
         user: users.sample,
+        list: lists.sample,
         name: Faker::Hipster.sentence,
-        date: Faker::Date.forward(23)
     )
   end
   items = Item.all
@@ -34,4 +42,5 @@ include Faker
 
     puts "Seeds finished"
     puts "#{users.count} users created."
+    puts "#{lists.count} lists created."
     puts "#{items.count} items created."

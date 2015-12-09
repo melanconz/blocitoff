@@ -21,13 +21,13 @@
         <center>
           <h2>Items</h2>
         </center>
-        <%= render @user.items %>
+        <%= render partial: 'items/item' %>
     </div>
     <br>
     <div>
       <h4 class="media-heading">Add To-Do item</h4>
       <br>
-      <%=render 'items/form', item: Item.new, user: @user %>
+      <%#render 'items/form', item: Item.new, user: @user %>
     </div>
    </div>
   </div>
