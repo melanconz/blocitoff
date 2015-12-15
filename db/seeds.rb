@@ -8,9 +8,9 @@
 include Faker
 
   User.create!(
-      username: 'creator',
+      username: 'Admin',
       email: 'zmelan01@gmail.com',
-      password: '0penplease1'
+      password: 'password'
   )
 
   5.times do

@@ -1,28 +1,51 @@
 class ItemsController < ApplicationController
 
+  def show
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+  end
+
+  def new
+    @list = List.find(params[:list_id])
+    @item = Item.new
+  end
 
   def create
     @list = List.find(params[:list_id])
-    @item = @list.items.build(post_params)
+    @item = @list.items.new(item_params)
+    @item.name = params[:item][:name]
     @item.user = current_user
-    @new_item = Item.new
+
 
     if @item.save
       flash[:notice] = "Item was saved."
-      redirect_to [@item.user]
+      redirect_to [current_user]
     else
       flash[:error] = "There was an error when saving item. Please try again."
-      redirect_to [@item.user]
     end
+  end
 
-    respond_to do |format|
-      format.html
-      format.js
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.name = params[:item][:name]
+    @item.assign_attributes(item_params)
+
+    if @item.save
+      flash[:notice] = "Item was updated."
+      redirect_to [@item.list, @item]
+    else
+      flash[:error] = "There was an error saving the item. Please try again."
+      render :edit
     end
   end
 
   def destroy
-    @item = @user.items.find(params[:id])
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
 
     if @item.destroy
       flash[:notice] = "Item completed. Good job!"

@@ -1,0 +1,24 @@
+<% @user.lists.each do |list| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        Category: <%= list.name.capitalize %>
+        <div class="pull-right">
+          <%= link_to "Edit", edit_user_list_path(list.user, list), class: 'btn btn-success' %>
+          <%= link_to "Delete List", [list.user, list], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this list?'} %>
+        </div>
+      </h4>
+
+      <small>
+        <%= pluralize(list.items.count, 'Item') %>
+      </small>
+
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%# list.inspect %>
+            <%= render partial: "items/item", locals: {list: list} %>
+            <%= render "items/form", item: Item.new, list: list %>
+         </h4>
+    </div>
+  </div>
+<% end %>
