@@ -10,6 +10,8 @@ class Api::ItemsController < ApiController
     end
   end
 
+  private
+
   def item_params
     params.require(:item).permit(:user_id, :list_id, :name)
   end
