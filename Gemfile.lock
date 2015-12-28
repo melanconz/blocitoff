@@ -46,6 +46,7 @@ GEM
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
+    cancancan (1.12.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -181,6 +182,7 @@ DEPENDENCIES
   active_model_serializers
   autoprefixer-rails
   bootstrap-sass
+  cancancan (~> 1.12.0)
   coffee-rails (~> 4.1.0)
   devise
   factory_girl_rails (~> 4.0)

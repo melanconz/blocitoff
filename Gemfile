@@ -42,3 +42,5 @@ gem 'autoprefixer-rails'
 gem 'faker'
 
 gem 'active_model_serializers'
+
+gem 'cancancan', '~> 1.12.0'
