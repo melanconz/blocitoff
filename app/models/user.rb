@@ -3,15 +3,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :items, dependent: :destroy
   has_many :lists, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable,
        :validatable, :authentication_keys => [:login]
 
-        validates :username,
-         :presence => true,
-         :uniqueness => {
-           :case_sensitive => false
-         }
+  validates :username, :presence => true, :uniqueness => { :case_sensitive => false}
 
   validate :validate_username
 
