@@ -15,14 +15,14 @@ class Api::ItemsController < ApiController
     if item.update(item_params)
       render json: item
     else
-      render json: { errors item.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:user_id, :list_id, :name)
+    params.require(:item).permit(:user_id, :list_id, :name, :completed)
   end
 
 end

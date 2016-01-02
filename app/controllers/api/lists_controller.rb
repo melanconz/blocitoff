@@ -23,7 +23,7 @@ class Api::ListsController < ApiController
   def update
     list = List.find(params[:id])
     if list.update(list_params)
-      rendor json: list
+      render json: list
     else
       render json: { errors: list.errors.full_messages }, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class Api::ListsController < ApiController
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :permissions)
   end
 
 end

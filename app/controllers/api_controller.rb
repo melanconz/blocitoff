@@ -3,6 +3,7 @@ class ApiController < ApplicationController
   skip_before_action :authenticate_user!
 
   private
+  
   def authenticated?
     authenticate_or_request_with_http_basic do |email, password|
       @logged_user = User.find_by_email(email)
@@ -11,6 +12,5 @@ class ApiController < ApplicationController
       valid
     end
   end
-
 
 end
