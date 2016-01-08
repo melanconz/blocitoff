@@ -1,0 +1,17 @@
+
+  <h1>
+    <%= @list.name.capitalize %>
+  <h1>
+  <%@list.items do |item| %>
+  <div id="item-<%= item.id %>" class="media">
+    <div class="media-body">
+
+      <h4 class="media-heading">
+        <%= link_to "", [list, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
+        <%= @list.item.name %> <br><br>
+        <%= "Item will self-destruct in #{distance_of_time_in_words(item.created_at, Time.now - 7.days)}." %>
+      </h4>
+
+    </div>
+  </div>
+  <% end %>
